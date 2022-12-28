@@ -1,0 +1,58 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy);
+html {
+  height: 100%;
+}
+html body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #540f35;
+}
+html body h1 {
+  font-family: "Satisfy", cursive;
+  font-size: 6em;
+  text-shadow: 0px 0px 2px #ef3b92, 1px 1px #ef3b92, 2px 2px 2px #ef3b92, -1px -1px 2px #ef3b92;
+  color: rgba(10, 9, 9, 0.8);
+}
+html body h1 span {
+  animation: neon-letter 2.5s infinite;
+}
+
+@keyframes neon-letter {
+  from, 10% {
+    text-shadow: 0px 0px 2px #ef3b92, 1px 1px #ef3b92, 2px 2px 2px #ef3b92, -1px -1px 2px #ef3b92;
+    color: rgba(10, 9, 9, 0.8);
+  }
+  10%, 20% {
+    text-shadow: none;
+    color: #3a0824;
+  }
+  20%, 22% {
+    text-shadow: 0px 0px 2px #ef3b92, 1px 1px #ef3b92, 2px 2px 2px #ef3b92, -1px -1px 2px #ef3b92;
+    color: rgba(10, 9, 9, 0.8);
+  }
+  22%, 25% {
+    text-shadow: none;
+    color: #3a0824;
+  }
+  25%, 32% {
+    text-shadow: 0px 0px 2px #ef3b92, 1px 1px #ef3b92, 2px 2px 2px #ef3b92, -1px -1px 2px #ef3b92;
+    color: rgba(10, 9, 9, 0.8);
+  }
+  32%, 35% {
+    text-shadow: none;
+    color: #3a0824;
+  }
+  35%, 40% {
+    text-shadow: 0px 0px 2px #ef3b92, 1px 1px #ef3b92, 2px 2px 2px #ef3b92, -1px -1px 2px #ef3b92;
+    color: rgba(10, 9, 9, 0.7);
+  }
+  40%, 80% {
+    color: rgba(10, 9, 9, 0.8);
+  }
+  80%, 100% {
+    text-shadow: none;
+    color: #3a0824;
+  }
+}

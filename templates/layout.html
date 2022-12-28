@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font.css') }}">
+
+
+
+
+
+    {% if title %}
+        <title>College Master {{ title }}</title>
+    {% else %}
+        <title>College Master</title>
+    {% endif %}
+</head>
+<body>
+  <div class="animatedbg-outer">
+    <ul class="bg-animated">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <li class="navbar-brand mr-4" href="/">College Master</li>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">About</a>
+            </div>
+            <!-- Navbar Right Side  -->
+          </div>
+
+        </div>
+      </nav>
+  
+    </header>
+    
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">  
+          <h1>Coll<span>e</span>ges</h1>
+        </div>
+        <div class="col-md-8">
+          {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+            <input type="text" class="live-search-box" placeholder="search here" />
+            <ul class="live-search-list" type="None">
+                <li><a class="test" href="{{ url_for('search' , title='Dr.D Y Patil School of Science and Technology') }}">Dr.D Y Patil School of Science and Technology</a></li>
+                <li><a  class="test" href="{{ url_for('search' , title='Dr.D Y Patil School') }}">Dr.D Y Patil School</a></li>
+                <li>PCCOE</li>
+                <li>MIT</li>
+                <li>VIT</li>
+                <li>INDIRA</li>
+                <li>IIT's</li>
+                
+                </ul>
+    <script type="text/javascript">
+        jQuery(document).ready(function($){
+            
+        $('.live-search-list li').each(function(){
+        $(this).attr('data-search-term', $(this).text().toLowerCase());
+        });
+        
+        $('.live-search-box').on('keyup', function(){
+            
+        var searchTerm = $(this).val().toLowerCase();
+  
+            $('.live-search-list li').each(function(){
+  
+                if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
+                $(this).show();
+                } else {
+                     $(this).hide();
+                   }
+  
+        });
+  
+});
+
+});
+</script>
+          </div>
+        </div>
+      </div>
+    </main>
+ 
+<style type="text/css">
+    h1 {text-align: center;}
+    .test {
+    color: rgb(2, 2, 2);
+    }
+    </style>
+
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
