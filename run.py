@@ -1,40 +1,28 @@
 from flask import Flask , render_template,request
+import pandas as pd
+
+posts = pd.read_csv(r'flask_project\college.csv',low_memory=False)
+
 
 app = Flask(__name__)
 
+size = len(posts)
 
-posts = [
-    {   
-        'author': 'Admin',
-        'title': 'Dr.D Y Patil School of Science and Technology',
-        'rating':'5',
-        'content': 'Courses available: \n CS , AI&DS \n Contact:XXXX',
-        'date_posted': 'JAN 20, 2022',
-        'link':'https://www.dypsst.dpu.edu.in/',
-        'image':'DYPSST'
-    },
-    {
-        'author': 'Admin',
-        'title': 'Dr.D Y Patil School',
-        'rating':'5',
-        'content': 'Courses available: \n CS , AI&DS \n Contact: XXXX',
-        'date_posted': 'JAN 20, 2022',
-        'image':'default'
-    }
-]
 
 @app.route('/'or '/home')
 def home():
 
-    return render_template('home.html',posts = posts)
+    return render_template('home.html',posts = posts,size=size)
         
 
 
 
 @app.route("/search", methods=['GET', 'POST'])
 def search():
-    title = request.args.get('title')
-    return render_template('search.html',title = title,posts = posts)
+    title = int(request.args.get('title'))
+    # db = int(posts[posts['Pincode']==title].index())
+    i = next(iter(posts[posts['Pincode']==title].index), 'no match')
+    return render_template('search.html',title = title,posts=posts,i=i)
 
 
 

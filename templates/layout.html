@@ -14,13 +14,8 @@
 
 
 
-
-
-    {% if title %}
-        <title>College Master {{ title }}</title>
-    {% else %}
         <title>College Master</title>
-    {% endif %}
+    
 </head>
 <body>
   <div class="animatedbg-outer">
@@ -53,36 +48,28 @@
               <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
               <a class="nav-item nav-link" href="{{ url_for('home') }}">About</a>
             </div>
-            <!-- Navbar Right Side  -->
-          </div>
-
-        </div>
-      </nav>
-  
     </header>
-    
     <main role="main" class="container">
+    
       <div class="row">
-        <div class="col-md-8">  
-          <h1>Coll<span>e</span>ges</h1>
-        </div>
         <div class="col-md-8">
           {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
           <div class="content-section">
             <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-            <input type="text" class="live-search-box" placeholder="search here" />
+            <form method="GET">
+            <input type="text" class="live-search-box"  placeholder="search here" name="title" method = "GET"  />
             <ul class="live-search-list" type="None">
-                <li><a class="test" href="{{ url_for('search' , title='Dr.D Y Patil School of Science and Technology') }}">Dr.D Y Patil School of Science and Technology</a></li>
-                <li><a  class="test" href="{{ url_for('search' , title='Dr.D Y Patil School') }}">Dr.D Y Patil School</a></li>
+                <li><a class="test" href="{{ url_for('search' , title=412105) }}">Dr.D Y Patil School of Science and Technology</a></li>
+                <li><a  class="test" href="{{ url_for('search' , title=412110) }}">Dr.D Y Patil School</a></li>
                 <li>PCCOE</li>
                 <li>MIT</li>
                 <li>VIT</li>
                 <li>INDIRA</li>
                 <li>IIT's</li>
-                
                 </ul>
+            </form>
     <script type="text/javascript">
         jQuery(document).ready(function($){
             
@@ -107,6 +94,7 @@
 });
 
 });
+
 </script>
           </div>
         </div>
