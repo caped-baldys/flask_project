@@ -1,7 +1,7 @@
 from flask import Flask , render_template,request
 import pandas as pd
 
-posts = pd.read_csv(r'flask_project\college.csv',low_memory=False)
+posts = pd.read_csv(r'flask_project\Book1.csv',low_memory=False,encoding='windows-1254')
 
 
 app = Flask(__name__)
@@ -20,6 +20,7 @@ def home():
 @app.route("/search", methods=['GET', 'POST'])
 def search():
     title = int(request.args.get('title'))
+    print(title)
     # db = int(posts[posts['Pincode']==title].index())
     i = next(iter(posts[posts['Pincode']==title].index), 'no match')
     return render_template('search.html',title = title,posts=posts,i=i)

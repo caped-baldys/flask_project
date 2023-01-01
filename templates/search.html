@@ -1,19 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
 {% if i != 'no match' %}
-        <article class="media content-section">
-          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' +  posts.iloc[i,7]) }}">
-          <div class="media-body">
-            <div class="article-metadata" class="items">
-              <a class="mr-2">{{ posts.iloc[i,3] }}</a>
-              <small class="text-muted">{{ posts.iloc[i,5] }}</small>
-            </div>
-            <h2><a class="article-title" href="{{posts.iloc[i,6]}}">{{ posts.iloc[i,0] }}</a></h2>
-            <p class="article-content">{{ posts.iloc[i,4] }}</p>
-            <p class="article-content">Ratings: {{ posts.iloc[i,2] }}</p>
-            <p class="article-content">Pin Code: {{ posts.iloc[i,1] }}</p>
-          </div>
-          </article>
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ url_for('static', filename='clgs/' +  posts.iloc[i,8]) }}">
+  <div class="media-body">
+    <div class="article-metadata" class="items">
+    </div>
+    <h2><a class="article-title" href="{{posts.iloc[i,6]}}">{{ posts.iloc[i,0] }}</a></h2>
+    <p class="article-content">Courses Available{{ posts.iloc[i,1] }}</p>
+    <p class="article-content">contact {{ posts.iloc[i,2] }}</p>
+    <p class="article-content">e-mail {{ posts.iloc[i,3] }}</p>
+    <p class="article-content">Rating {{ posts.iloc[i,4] }}</p>
+    <p class="article-content">Address {{ posts.iloc[i,5] }}</p
+  </div>
+</article>
 {% else %}
 
 <article class="media content-section">

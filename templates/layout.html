@@ -4,11 +4,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <!-- Bootstrap CSS -->
+  
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='font.css') }}">
 
@@ -49,63 +49,72 @@
               <a class="nav-item nav-link" href="{{ url_for('home') }}">About</a>
             </div>
     </header>
-    <main role="main" class="container">
-    
-      <div class="row">
-        <div class="col-md-8">
+    <div>
+    <img src="static\clgs\tf.svg" style="align-self: center; width: 140% ;padding-block-start: 0px;"/>
+     
+    <div class="leftcolumn" style="height:0px;  padding-block-start: 10px;">
           {% block content %}{% endblock %}
         </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-            <form method="GET">
-            <input type="text" class="live-search-box"  placeholder="search here" name="title" method = "GET"  />
-            <ul class="live-search-list" type="None">
-                <li><a class="test" href="{{ url_for('search' , title=412105) }}">Dr.D Y Patil School of Science and Technology</a></li>
-                <li><a  class="test" href="{{ url_for('search' , title=412110) }}">Dr.D Y Patil School</a></li>
-                <li>PCCOE</li>
-                <li>MIT</li>
-                <li>VIT</li>
-                <li>INDIRA</li>
-                <li>IIT's</li>
-                </ul>
-            </form>
-    <script type="text/javascript">
-        jQuery(document).ready(function($){
-            
-        $('.live-search-list li').each(function(){
-        $(this).attr('data-search-term', $(this).text().toLowerCase());
-        });
-        
-        $('.live-search-box').on('keyup', function(){
-            
-        var searchTerm = $(this).val().toLowerCase();
-  
-            $('.live-search-list li').each(function(){
-  
-                if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
-                $(this).show();
-                } else {
-                     $(this).hide();
-                   }
-  
-        });
-  
-});
 
-});
+          <div class="rightcolumn" style="height:10px; float: right; padding-block-start: 10px;">
+            <div class="content-section">
+              <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+              <form method="GET" action="{{ url_for('search') }}">
+              <input type="text" class="live-search-box"  placeholder="search here" name="title" method = "GET"  />
+              <ul class="live-search-list" type="None">
+                <br><li><a class="test" href="{{ url_for('search' , title=411033) }}">Dr.D Y Patil School of Science and Technology</a></li>
+                  <br><li><a  class="test" href="{{ url_for('search' , title=410506) }}">Indira College Of Engineering</a></li>
+                  <br><li><a  class="test" href="{{ url_for('search' , title=411038) }}">MIT-WPU</a></li>
+                  <br><li><a  class="test" href="{{ url_for('search' , title=411037) }}">Vishwakarma Institute of Technology(VIT)</a></li>
+                  <br><li><a  class="test" href="{{ url_for('search' , title=411005) }}">College Of Engineering Pune (COEP)</a></li>
+                  <br><li><a  class="test" href="{{ url_for('search' , title=411018) }}">Dr DY Patil Institute of Technology</a></li>
+                  <br><li><a  class="test" href="{{ url_for('search' , title=411011) }}">AISSMS College of Engineering</a></li>
+                  <br><li><a  class="test" href="{{ url_for('search' , title=411043) }}">Pune Institute of Computer Technology(PICT)</a></li>
+                  <br><li><a  class="test" href="{{ url_for('search' , title=411052) }}">MKSSS's Cummins College </a></li>
+                  <br><li><a  class="test" href="{{ url_for('search' , title=411044) }}">Pimpri Chinchwad College of Engineering(PCCOE)</a></li>
+                  <br><li><a  class="test" href="{{ url_for('search' , title=411005) }}">Modern College of Engineering</a></li>
+                  
+                  </ul>
+              </form>
+      <script type="text/javascript">
+          jQuery(document).ready(function($){
+              
+          $('.live-search-list li').each(function(){
+          $(this).attr('data-search-term', $(this).text().toLowerCase());
+          });
+          
+          $('.live-search-box').on('keyup', function(){
+              
+          var searchTerm = $(this).val().toLowerCase();
+    
+              $('.live-search-list li').each(function(){
+    
+                  if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
+                  $(this).show();
+                  } else {
+                       $(this).hide();
+                     }
+    
+          });
+    
+  });
+  
+  });
 
-</script>
-          </div>
+</script> 
+          
         </div>
       </div>
-    </main>
- 
+    </div>
+  </div>
+  
 <style type="text/css">
+
     h1 {text-align: center;}
     .test {
     color: rgb(2, 2, 2);
     }
+
     </style>
 
     
